@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block title %}Login Page{% endblock %}
+{% block body %}
+    <section class="sign-in">
+        <form action="/login" method="POST" class="form-signin">
+            <h1 class="page-title">Log in</h1>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" name="username" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <br>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <br>
+            <a href="{{ url_for("register_user") }}">Don't have a profile? Sign up</a>
+            <br>
+            <a href="{{ url_for('recover_password') }}">Forgot your password? Click here</a>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+
+{% endblock %}

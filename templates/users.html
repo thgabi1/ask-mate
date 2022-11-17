@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+    <form action="/"><button type="submit" class="previous-button"><img src="/static/icons/previous.png" alt="previous-button"></button></form>
+    <section class="table">
+        <div class="table-content">
+            <div class="users_row">
+                {% for header in headers %}
+                    <div class="field-with-sort">
+                        {{ header }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% for user in users %}
+                <div class="users_row">
+                    {% for key, value in user.items() %}
+                        {% if loop.index == 2 %}
+                        <div class="field-with-sort">
+                            <a href="{{ url_for('user_profile', user_id=user['id']) }}">{{ value }}</a>
+                        </div>
+                        {% elif not loop.first %}
+                        <div class="field-with-sort">
+                            {{ value }}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    {% include "footer.html" %}
+{% endblock %}

@@ -1,0 +1,29 @@
+<nav>
+        <div class="left-side">
+            <div class="header">
+                <a href="/">AskMate</a>
+            </div>
+        <div class="search">
+            <form action="/search" method="get">
+                <label for="question-input"></label>
+                <input type="text" name="question_input" id="question-input" placeholder="Search" required>
+                <button class="search-btn"><img src="../static/icons/magnifying-glass.png" alt="search-icon"></button>
+            </form>
+        </div>
+        <div class="nav-items">
+            <a class="user-link" href="{{ url_for('list_users') }}">Users</a>
+            <a href="{{ url_for('bonus_question') }}">Bonus Questions</a>
+        </div>
+    </div>
+    <div class="login-registration-container">
+        {% if email %}
+        <p class="pop">You are logged in as  <a href="/user/{{ user_id }}">{{ email }}</a>  <br>
+        <a href="/logout">Logout</a></p>
+        {% else %}
+        <a href="/registration">Register</a>
+        <a href="/login">Login</a>
+        {% endif %}
+    </div>
+
+
+</nav>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Exo:wght@300&family=Inconsolata:wght@200&family=Roboto:wght@200&display=swap" rel="stylesheet">
+        <title>AskMate | {% block title %}{% endblock %}</title>
+        <script src="https://kit.fontawesome.com/82a8de7507.js" crossorigin="anonymous"></script>
+        <link
+            rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
+
+        <script>
+            function toggleTheme() {
+                var theme = document.getElementsByTagName('link')[1];
+                if (theme.getAttribute('href') === '/static/style.css') {
+                    theme.setAttribute('href', '/static/style-2.css');
+                } else {
+                    theme.setAttribute('href', '/static/style.css');
+                }
+            }
+        </script>
+    </head>
+    <body>
+        {% include "navbar.html" %}
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>
